@@ -15,7 +15,7 @@ builder.Services.AddAutoMapper(typeof(MappingProfile));
 
 //Carrinho
 builder.Services.AddScoped<ICarrinhoRepository, CarrinhoRepository>();
-builder.Services.AddScoped<ICarrinhoService, CarrinhoService>();
+builder.Services.AddScoped<ICarrinhoService, CarrinhoService>(); 
 
 builder.Services.AddScoped<IProdutoRepository, ProdutoRepository>();
 builder.Services.AddScoped<IProdutoService, ProdutoService>();
