@@ -54,8 +54,8 @@ namespace Marcenaria._2__Repository
                 commandoSQL += @" 
                 CREATE TABLE IF NOT EXISTS Compras(                
                 ID INTEGER PRIMARY KEY AUTOINCREMENT,
-                DATACOMPRA INTEGER NOT NULL,
-                TOTAL INTEGER NOT NULL,
+                DATACOMPRA DATETIME NOT NULL,
+                TOTAL REAL NOT NULL,
                 PRODUTOSID INTEGER NOT NULL,
                 CLIENTEID INTEGER NOT NULL
                 
@@ -86,9 +86,9 @@ namespace Marcenaria._2__Repository
                 commandoSQL += @" 
                 CREATE TABLE IF NOT EXISTS Vendas(                
                 ID INTEGER PRIMARY KEY AUTOINCREMENT,
-                DATAVENDA INTEGER NOT NULL,
+                DATAVENDA DATETIME NOT NULL,
                 PRODUTOID INTEGER NOT NULL,
-                TOTALVENDAS INTEGER NOT NULL,
+                VALORFINAL REAL NOT NULL,
                 CLIENTEID INTEGER NOT NULL,
                 FUNCIONARIOID INTEGER NOT NULL
                 

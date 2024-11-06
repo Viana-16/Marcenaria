@@ -5,9 +5,9 @@ VisualStudioVersion = 17.10.35027.167
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "API", "API\API.csproj", "{FF615F40-7C53-479B-B3FA-5E82ED597E28}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoreBiblioteca", "CoreBiblioteca\CoreBiblioteca.csproj", "{AB4BB924-5AA9-4F81-8D0A-F70F035FD8D8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Marcenaria", "CoreBiblioteca\Marcenaria.csproj", "{AB4BB924-5AA9-4F81-8D0A-F70F035FD8D8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FrontEnd", "FrontEnd\FrontEnd.csproj", "{7D9081E2-B438-47A3-88E4-38CAB57895C0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FrontEnd", "FrontEnd\FrontEnd.csproj", "{7D9081E2-B438-47A3-88E4-38CAB57895C0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

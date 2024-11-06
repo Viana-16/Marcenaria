@@ -37,9 +37,9 @@ namespace API.Controllers
             return _service.ListarCarrinhoDoUsuario(clienteId);
         }
         [HttpPut("editar-carrinho")]
-        public void EditarCarrinho(Carrinho p)
+        public void EditarCarrinho(Carrinho c)
         {
-            _service.Editar(p);
+            _service.Editar(c);
         }
         [HttpDelete("deletar-carrinho")]
         public void DeletarCarrinho(int id)

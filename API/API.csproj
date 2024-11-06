@@ -17,7 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\CoreBiblioteca\CoreBiblioteca.csproj" />
+    <ProjectReference Include="..\CoreBiblioteca\Marcenaria.csproj" />
   </ItemGroup>
 
 </Project>
