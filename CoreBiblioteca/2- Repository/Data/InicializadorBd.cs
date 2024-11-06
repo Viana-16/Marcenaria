@@ -92,9 +92,13 @@ namespace Marcenaria._2__Repository
                 CLIENTEID INTEGER NOT NULL,
                 FUNCIONARIOID INTEGER NOT NULL
                 
-                
-          
             );";
+                commandoSQL += @"   
+                 CREATE TABLE IF NOT EXISTS Carrinhos(
+                 Id INTEGER PRIMARY KEY AUTOINCREMENT,
+                 ProdutoId INTEGER NOT NULL,
+                 ClienteId INTEGER NOT NULL
+                 );";
 
 
                 connection.Execute(commandoSQL);

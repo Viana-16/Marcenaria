@@ -14,7 +14,7 @@ using System.Threading.Tasks;
 
 namespace Marcenaria._2__Repository
 {
-    public class CarrinhoRepository : ICarrinhoRepository
+    public class CarrinhoRepository : ICarrinhoRepository 
     {
         private readonly string ConnectionString;
         private readonly IProdutoRepository _repositoryProduto;
