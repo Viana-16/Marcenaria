@@ -67,7 +67,7 @@ namespace Marcenaria._2__Repository
                 NOME TEXT NOT NULL,
                 CARGO TEXT NOT NULL,
                 CONTATO TEXT NOT NULL,
-                DATACONTRATACAO DATETIME NOT NULL,
+                DATACONTRATACAO TEXT NOT NULL,
                 USUARIO TEXT NOT NULL,
                 SENHA INTEGER NOT NULL
                 
