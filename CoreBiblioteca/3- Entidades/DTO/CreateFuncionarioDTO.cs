@@ -10,8 +10,8 @@ namespace Marcenaria._3__Entidades.DTO
     {
         public string Nome { get; set; }
         public string Cargo { get; set; }
-        public int Contato { get; set; }
-        public int DataContratacao { get; set; }
+        public string Contato { get; set; }
+        public DateTime DataContratacao { get; set; }
         public string Usuario { get; set; }
         public int Senha { get; set; }
     }

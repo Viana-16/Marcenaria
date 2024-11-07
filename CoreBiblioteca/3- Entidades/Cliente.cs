@@ -12,7 +12,7 @@ namespace Marcenaria._3__Entidades
     {
         public int Id { get; set; }
         public string Nome { get; set; }
-        public int Contato { get; set; }
+        public string Contato { get; set; }
         public string Endereco { get; set; }
         public string Usuario { get; set; }
         public int Senha { get; set; }

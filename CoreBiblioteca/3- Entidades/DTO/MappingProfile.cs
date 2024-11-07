@@ -17,6 +17,7 @@ namespace Marcenaria._3__Entidades.DTO
             CreateMap<CreateFornecedorDTO, Fornecedor>().ReverseMap();
             CreateMap<CreateClienteDTO, Cliente>().ReverseMap();
             CreateMap<CreateCompraDTO, Compra>().ReverseMap();
+            CreateMap<CreateCarrinhoDTO, Carrinho>().ReverseMap();
             CreateMap<CreateFuncionarioDTO, Funcionario>().ReverseMap();
             CreateMap<CreateMaterialDTO, Material>().ReverseMap();
             CreateMap<CreateVendaDTO, Venda>().ReverseMap();

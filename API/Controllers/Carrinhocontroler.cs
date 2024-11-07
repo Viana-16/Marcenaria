@@ -21,7 +21,7 @@ namespace API.Controllers
             _mapper = mapper;
         }
         [HttpPost("adicionar-carrinho")]
-        public void AdicionarAluno(Carrinho carrinhoDTO)
+        public void AdicionarAluno(CreateCarrinhoDTO carrinhoDTO)
         {
             Carrinho carrinho = _mapper.Map<Carrinho>(carrinhoDTO);
             _service.Adicionar(carrinho);

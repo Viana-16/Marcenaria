@@ -13,7 +13,7 @@ namespace FrontEnd.Models
         public int CNPJ { get; set; }
         public string Endereco { get; set; }
         public string Email { get; set; }
-        public int Telefone { get; set; }
+        public string Telefone { get; set; }
         public override string ToString()
         {
             return $"Id: {Id} -Nome:{Nome} -CNPJ:{CNPJ} -Endereco{Endereco} -Email{Email} -Telefone{Telefone}";
