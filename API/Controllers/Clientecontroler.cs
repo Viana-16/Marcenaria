@@ -20,6 +20,14 @@ namespace API.Controllers
             _service = service;
             _mapper = mapper;
         }
+
+        /// <summary>
+        /// Endpoint para adicionar clientes
+        /// </summary>
+        /// <param name="clienteDTO"></param>
+
+
+
         [HttpPost("adicionar-Clientes")]
         public void Adicionar(CreateClienteDTO clienteDTO)
         {

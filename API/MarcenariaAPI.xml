@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>API</name>
+    </assembly>
+    <members>
+        <member name="M:API.Controllers.Clientecontroller.Adicionar(Marcenaria._3__Entidades.DTO.CreateClienteDTO)">
+            <summary>
+            Endpoint para adicionar clientes
+            </summary>
+            <param name="clienteDTO"></param>
+        </member>
+    </members>
+</doc>
