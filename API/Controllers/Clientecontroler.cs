@@ -29,10 +29,23 @@ namespace API.Controllers
 
 
         [HttpPost("adicionar-Clientes")]
-        public void Adicionar(CreateClienteDTO clienteDTO)
+        public IActionResult Adicionar(CreateClienteDTO clienteDTO)
         {
-            Cliente clientes = _mapper.Map<Cliente>(clienteDTO);
-            _service.Adicionar(clientes);
+            try
+            {
+                Cliente clientes = _mapper.Map<Cliente>(clienteDTO);
+                _service.Adicionar(clientes);
+                return Ok();
+            }
+            catch (Exception erro)
+            {
+
+                return BadRequest($"Ocorreu um erro ao adicionar Aluno, " +
+                    $"o erro foi \n {erro.Message}");
+            }
+
+
+            
         }
         [HttpGet("listar-Clientes")]
         public List<Cliente> Listar()
@@ -40,14 +53,16 @@ namespace API.Controllers
             return _service.Listar();
         }
         [HttpPut("editar-Clientes")]
-        public void Editar(Cliente c)
+        public IActionResult Editar(Cliente c)
         {
             _service.Editar(c);
+            return NoContent();
         }
         [HttpDelete("deletar-Clientes")]
         public void Deletar(int id)
         {
             _service.Remover(id);
+            
         }
         [HttpGet("Buscar-Cliente-por-Id")]
         public Cliente BuscarPorId(int id)
