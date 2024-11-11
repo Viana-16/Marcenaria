@@ -19,31 +19,124 @@ namespace API.Controllers
             _service = service;
             _mapper = mapper;
         }
+
+        /// <summary>
+        /// Endpoint para adicionar materiais
+        /// </summary>
+        /// <param name="materialDTO"></param>
+        /// <returns></returns>
+
         [HttpPost("adicionar-Material")]
-        public void Adicionar(CreateMaterialDTO materialDTO)
+        public IActionResult Adicionar(CreateMaterialDTO materialDTO)
         {
-            Material material = _mapper.Map<Material>(materialDTO);
-            _service.Adicionar(material);
+            try
+            {
+                Material material = _mapper.Map<Material>(materialDTO);
+                _service.Adicionar(material);
+                return Ok();
+            }
+            catch (Exception erro)
+            {
+
+                return BadRequest($"Ocorreu um erro ao adicionar o material, " +
+                    $"o erro foi \n {erro.Message}");
+            }
+           
         }
+
+
+        /// <summary>
+        /// Endpoint para listar materiais
+        /// </summary>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
+
         [HttpGet("listar-Material")]
         public List<Material> Listar()
         {
-            return _service.Listar();
+            try
+            {
+                return _service.Listar();
+            }
+            catch (Exception)
+            {
+
+                throw new Exception("Erro ao listar material por id");
+            }
+            
         }
+
+
+
+        /// <summary>
+        /// Endpoint para editar materiais
+        /// </summary>
+        /// <param name="m"></param>
+        /// <returns></returns>
+
         [HttpPut("editar-Material")]
-        public void Editar(Material m)
+        public IActionResult Editar(Material m)
         {
-            _service.Editar(m);
+            try
+            {
+                _service.Editar(m);
+                return Ok();
+            }
+            catch (Exception erro)
+            {
+
+                return BadRequest($"Ocorreu um erro ao editar o material, " +
+                     $"o erro foi \n {erro.Message}");
+            }
+            
         }
+
+
+
+        /// <summary>
+        /// Endpoint para deletar materiais
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+
         [HttpDelete("deletar-Material")]
-        public void Deletar(int id)
+        public IActionResult Deletar(int id)
         {
-            _service.Remover(id);
+            try
+            {
+                _service.Remover(id);
+                return Ok();
+            }
+            catch (Exception erro)
+            {
+
+                return BadRequest($"Ocorreu um erro ao deletar o material, " +
+                      $"o erro foi \n {erro.Message}");
+            }
+            
         }
+
+
+        /// <summary>
+        /// Endpoint para buscar materiais por id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
+
         [HttpGet("Buscar-Material-por-Id")]
         public Material BuscarPorId(int id)
         {
-            return _service.BuscarPorId(id);
+            try
+            {
+               return _service.BuscarPorId(id); 
+            }
+            catch (Exception)
+            {
+
+                throw new Exception("Erro ao Buscar material por id");
+            }
+            
         }
     }
 }

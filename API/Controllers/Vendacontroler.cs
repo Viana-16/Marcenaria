@@ -19,31 +19,126 @@ namespace API.Controllers
             _service = service;
             _mapper = mapper;
         }
+
+
+
+        /// <summary>
+        /// Endpoint para adicionar vendas
+        /// </summary>
+        /// <param name="VendaDTO"></param>
+        /// <returns></returns>
+
         [HttpPost("adicionar-Venda")]
-        public void Adicionar(CreateVendaDTO VendaDTO)
+        public IActionResult Adicionar(CreateVendaDTO VendaDTO)
         {
-            Venda venda = _mapper.Map<Venda>(VendaDTO);
-            _service.Adicionar(venda);
+            try
+            {
+                Venda venda = _mapper.Map<Venda>(VendaDTO);
+                _service.Adicionar(venda);
+                return Ok();
+            }
+            catch (Exception erro)
+            {
+
+                return BadRequest($"Ocorreu um erro ao adicionar a venda, " +
+                    $"o erro foi \n {erro.Message}");
+            }
+           
         }
+
+
+        /// <summary>
+        /// Endpoint para listar vendas
+        /// </summary>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
         [HttpGet("listar-Venda")]
         public List<Venda> Listar()
         {
-            return _service.Listar();
+            try
+            {
+                return _service.Listar();
+            }
+            catch (Exception)
+            {
+
+                throw new Exception("Erro ao listar a venda");
+            }
+           
         }
+
+
+
+        /// <summary>
+        /// Endpoint para editar vendas
+        /// </summary>
+        /// <param name="v"></param>
+        /// <returns></returns>
+        /// 
         [HttpPut("editar-Venda")]
-        public void Editar(Venda v)
+        public IActionResult Editar(Venda v)
         {
-            _service.Editar(v);
+            try
+            {
+                _service.Editar(v);
+                return Ok();
+            }
+            catch (Exception erro)
+            {
+
+                return BadRequest($"Ocorreu um erro ao editar a venda, " +
+                    $"o erro foi \n {erro.Message}");
+            }
+            
         }
+
+
+
+        /// <summary>
+        /// Endpoint para deletar vendas
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+
         [HttpDelete("deletar-Venda")]
-        public void Deletar(int id)
+        public IActionResult Deletar(int id)
         {
-            _service.Remover(id);
+            try
+            {
+                _service.Remover(id);
+                return Ok();
+            }
+            catch (Exception erro)
+            {
+
+                return BadRequest($"Ocorreu um erro ao deletar a venda, " +
+                     $"o erro foi \n {erro.Message}");
+            }
+            
         }
+
+
+
+        /// <summary>
+        /// Endpoint para buscar vendas por id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
+
         [HttpGet("Buscar-Venda-por-Id")]
         public Venda BuscarPorId(int id)
         {
-            return _service.BuscarPorId(id);
+            try
+            {
+                return _service.BuscarPorId(id);
+            }
+            catch (Exception)
+            {
+
+                throw new Exception("Erro ao Buscar a venda por id");
+            }
+            
         }
     }
 }

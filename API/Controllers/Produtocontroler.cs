@@ -19,31 +19,124 @@ namespace API.Controllers
             _service = service;
             _mapper = mapper;
         }
+
+        /// <summary>
+        /// Endpoint para adicionar produtos
+        /// </summary>
+        /// <param name="produtoDTO"></param>
+        /// <returns></returns>
+
         [HttpPost("adicionar-Produto")]
-        public void Adicionar(CreateProdutosDTO produtoDTO)
+        public IActionResult Adicionar(CreateProdutosDTO produtoDTO)
         {
-            Produtos produto = _mapper.Map<Produtos>(produtoDTO);
-            _service.Adicionar(produto);
+            try
+            {
+                Produtos produto = _mapper.Map<Produtos>(produtoDTO);
+                _service.Adicionar(produto);
+                return Ok();
+            }
+            catch (Exception erro)
+            {
+                return BadRequest($"Ocorreu um erro ao adicionar o produto, " +
+                    $"o erro foi \n {erro.Message}");
+
+            }
+            
         }
+
+
+        /// <summary>
+        /// Endpoint para listar produtos
+        /// </summary>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
+
         [HttpGet("listar-produto")]
         public List<Produtos> Listar()
         {
-            return _service.Listar();
+            try
+            {
+                return _service.Listar();
+            }
+            catch (Exception)
+            {
+
+                throw new Exception("Erro ao listar produto");
+            }
+            
         }
+
+
+        /// <summary>
+        /// Endpoint para editar produtos
+        /// </summary>
+        /// <param name="p"></param>
+        /// <returns></returns>
+
         [HttpPut("editar-Produto")]
-        public void Editar(Produtos p)
+        public IActionResult Editar(Produtos p)
         {
-            _service.Editar(p);
+            try
+            {
+                _service.Editar(p);
+                return Ok();
+            }
+            catch (Exception erro)
+            {
+
+                return BadRequest($"Ocorreu um erro ao editar o produto, " +
+                    $"o erro foi \n {erro.Message}");
+            }
+            
         }
+
+
+
+        /// <summary>
+        /// Endpoint para deletar produtos
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+
         [HttpDelete("deletar-Produto")]
-        public void Deletar(int id)
+        public IActionResult Deletar(int id)
         {
-            _service.Remover(id);
+            try
+            {
+               _service.Remover(id); 
+                return Ok();
+            }
+            catch (Exception erro)
+            {
+
+                return BadRequest($"Ocorreu um erro ao deletar o produto, " +
+                     $"o erro foi \n {erro.Message}");
+            }
+            
         }
+
+
+
+        /// <summary>
+        /// Endpoint para buscar produtos por id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
+
         [HttpGet("Buscar-Produto-por-Id")]
         public Produtos BuscarPorId(int id)
         {
-            return _service.BuscarPorId(id);
+            try
+            {
+                return _service.BuscarPorId(id);
+            }
+            catch (Exception)
+            {
+
+                throw new Exception("Erro ao Buscar produto por id");
+            }
+           
         }
     }
 }

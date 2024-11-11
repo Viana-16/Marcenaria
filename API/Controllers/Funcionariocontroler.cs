@@ -19,31 +19,130 @@ namespace API.Controllers
             _service = service;
             _mapper = mapper;
         }
+
+
+
+        /// <summary>
+        /// Endpoint para adicionar funcionarios
+        /// </summary>
+        /// <param name="funcionarioDTO"></param>
+        /// <returns></returns>
+
         [HttpPost("adicionar-Funcionario")]
-        public void Adicionar(CreateFuncionarioDTO funcionarioDTO)
+        public IActionResult Adicionar(CreateFuncionarioDTO funcionarioDTO)
         {
-            Funcionario funcionario = _mapper.Map<Funcionario>(funcionarioDTO);
-            _service.Adicionar(funcionario);
+
+            try
+            {
+                Funcionario funcionario = _mapper.Map<Funcionario>(funcionarioDTO);
+                _service.Adicionar(funcionario);
+                return Ok();
+            }
+            catch (Exception erro)
+            {
+
+                return BadRequest($"Ocorreu um erro ao adicionar o Funcionario, " +
+                   $"o erro foi \n {erro.Message}");
+            }
+            
         }
+
+
+        /// <summary>
+        /// Endpoint para listar funcionarios
+        /// </summary>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
+
         [HttpGet("listar-Funcionario")]
         public List<Funcionario> Listar()
         {
-            return _service.Listar();
+            try
+            {
+                return _service.Listar();
+            }
+            catch (Exception)
+            {
+
+                throw new Exception("Erro ao listar funcionario");
+            }
+            
         }
+
+
+        /// <summary>
+        /// Endpoint para editar funcionarios
+        /// </summary>
+        /// <param name="f"></param>
+        /// <returns></returns>
+
         [HttpPut("editar-Funcionario")]
-        public void Editar(Funcionario f)
+        public IActionResult Editar(Funcionario f)
         {
-            _service.Editar(f);
+
+            try
+            {
+                _service.Editar(f);
+                return Ok();
+            }
+            catch (Exception erro)
+            {
+
+                return BadRequest($"Ocorreu um erro ao Editar o Funcionario, " +
+                   $"o erro foi \n {erro.Message}");
+            }
+            
         }
+
+
+
+
+        /// <summary>
+        /// Endpoint para deletar funcionarios
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+
         [HttpDelete("deletar-Funcionario")]
-        public void Deletar(int id)
+        public IActionResult Deletar(int id)
         {
-            _service.Remover(id);
+            try
+            {
+                _service.Remover(id);
+                return Ok();
+            }
+            catch (Exception erro)
+            {
+
+                return BadRequest($"Ocorreu um erro ao deletar o funcionario, " +
+                   $"o erro foi \n {erro.Message}");
+            }
+            
         }
+
+
+
+
+        /// <summary>
+        /// Endpoint para buscar funcionarios por id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
+
         [HttpGet("Buscar-Funcionario-por-Id")]
         public Funcionario BuscarPorId(int id)
         {
-            return _service.BuscarPorId(id);
+            try
+            {
+                return _service.BuscarPorId(id);
+            }
+            catch (Exception)
+            {
+
+                throw new Exception("Erro ao buscar Funcionario por id");
+            }
+            
         }
     }
 }

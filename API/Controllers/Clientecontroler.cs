@@ -40,34 +40,109 @@ namespace API.Controllers
             catch (Exception erro)
             {
 
-                return BadRequest($"Ocorreu um erro ao adicionar Aluno, " +
+                return BadRequest($"Ocorreu um erro ao adicionar Cliente, " +
                     $"o erro foi \n {erro.Message}");
             }
 
 
             
         }
+
+
+        /// <summary>
+        /// Endpoint para listar clientes
+        /// </summary>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
+        /// 
+
+
+
         [HttpGet("listar-Clientes")]
         public List<Cliente> Listar()
         {
-            return _service.Listar();
+            try
+            {
+                return _service.Listar();
+            }
+            catch (Exception)
+            {
+
+                throw new Exception("Erro ao Listar Cliente");
+            }
+            
         }
+
+
+        /// <summary>
+        /// Endpoint para editar clientes
+        /// </summary>
+        /// <param name="c"></param>
+        /// <returns></returns>
+        /// 
+
+
         [HttpPut("editar-Clientes")]
         public IActionResult Editar(Cliente c)
         {
-            _service.Editar(c);
-            return NoContent();
-        }
-        [HttpDelete("deletar-Clientes")]
-        public void Deletar(int id)
-        {
-            _service.Remover(id);
+            try
+            {
+                _service.Editar(c);
+                return Ok();
+            }
+            catch (Exception erro)
+            {
+                return BadRequest($"Ocorreu um erro ao Editar o Cliente, " +
+                   $"o erro foi \n {erro.Message}");
+
+            }
             
         }
+
+
+        /// <summary>
+        /// Endpoint para deletar clientes
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+
+        [HttpDelete("deletar-Clientes")]
+        public IActionResult Deletar(int id)
+        {
+            try
+            {
+                _service.Remover(id);
+                return Ok();
+            }
+            catch (Exception erro)
+            {
+                return BadRequest($"Ocorreu um erro ao deletar o Cliente, " +
+                   $"o erro foi \n {erro.Message}");
+            }
+        }
+
+
+
+        /// <summary>
+        /// Endpoint para buscar clientes por id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
+
         [HttpGet("Buscar-Cliente-por-Id")]
         public Cliente BuscarPorId(int id)
         {
-            return _service.BuscarPorId(id);
+            try
+            {
+                return _service.BuscarPorId(id);
+            }
+            catch (Exception)
+            {
+
+                throw new Exception("Erro ao buscar Cliente por id");
+            }
+            
         }
     }
 }

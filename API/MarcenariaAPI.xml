@@ -4,11 +4,290 @@
         <name>API</name>
     </assembly>
     <members>
+        <member name="M:API.Controllers.CarrinhoController.AdicionarCliente(Marcenaria._3__Entidades.DTO.CreateCarrinhoDTO)">
+            <summary>
+            Endpoint para adicionar Carrinho
+            </summary>
+            <param name="carrinhoDTO"></param>
+        </member>
+        <member name="M:API.Controllers.CarrinhoController.ListarCliente">
+            <summary>
+            Endpoint para listar Carrinho
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:API.Controllers.CarrinhoController.ListarCarrinhoDoUsuario(System.Int32)">
+            <summary>
+            Endpoint para listar Carrinho usuario
+            </summary>
+            <param name="clienteId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:API.Controllers.CarrinhoController.EditarCarrinho(Marcenaria._3__Entidades.Carrinho)">
+            <summary>
+            Endpoint para editar Carrinho
+            </summary>
+            <param name="c"></param>
+        </member>
+        <member name="M:API.Controllers.CarrinhoController.DeletarCarrinho(System.Int32)">
+            <summary>
+            Endpoint para deletar Carrinho
+            </summary>
+            <param name="id"></param>
+        </member>
         <member name="M:API.Controllers.Clientecontroller.Adicionar(Marcenaria._3__Entidades.DTO.CreateClienteDTO)">
             <summary>
             Endpoint para adicionar clientes
             </summary>
             <param name="clienteDTO"></param>
+        </member>
+        <member name="M:API.Controllers.Clientecontroller.Listar">
+            <summary>
+            Endpoint para listar clientes
+            </summary>
+            <returns></returns>
+            <exception cref="T:System.Exception"></exception>
+            
+        </member>
+        <member name="M:API.Controllers.Clientecontroller.Editar(Marcenaria._3__Entidades.Cliente)">
+            <summary>
+            Endpoint para editar clientes
+            </summary>
+            <param name="c"></param>
+            <returns></returns>
+            
+        </member>
+        <member name="M:API.Controllers.Clientecontroller.Deletar(System.Int32)">
+            <summary>
+            Endpoint para deletar clientes
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:API.Controllers.Clientecontroller.BuscarPorId(System.Int32)">
+            <summary>
+            Endpoint para buscar clientes por id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+            <exception cref="T:System.Exception"></exception>
+        </member>
+        <member name="M:API.Controllers.Compracontroller.Adicionar(Marcenaria._3__Entidades.DTO.CreateCompraDTO)">
+            <summary>
+            Endpoint para adicionar compras
+            </summary>
+            <param name="compraDTO"></param>
+            <returns></returns>
+        </member>
+        <member name="M:API.Controllers.Compracontroller.Listar">
+            <summary>
+            Endpoint para listar compras
+            </summary>
+            <returns></returns>
+            <exception cref="T:System.Exception"></exception>
+        </member>
+        <member name="M:API.Controllers.Compracontroller.Editar(Marcenaria._3__Entidades.Compra)">
+            <summary>
+            Endpoint para editar compras
+            </summary>
+            <param name="c"></param>
+            <returns></returns>
+        </member>
+        <member name="M:API.Controllers.Compracontroller.Deletar(System.Int32)">
+            <summary>
+            Endpoint para deletar compras
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:API.Controllers.Compracontroller.BuscarPorId(System.Int32)">
+            <summary>
+            Endpoint para buscar compras por id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+            <exception cref="T:System.Exception"></exception>
+        </member>
+        <member name="M:API.Controllers.Fornecedorcontroller.Adicionar(Marcenaria._3__Entidades.DTO.CreateFornecedorDTO)">
+            <summary>
+            Endpoint para adicionar fornecedor
+            </summary>
+            <param name="fornecedorDTO"></param>
+            <returns></returns>
+        </member>
+        <member name="M:API.Controllers.Fornecedorcontroller.Listar">
+            <summary>
+            Endpoint para listar fornecedor
+            </summary>
+            <returns></returns>
+            <exception cref="T:System.Exception"></exception>
+        </member>
+        <member name="M:API.Controllers.Fornecedorcontroller.Editar(Marcenaria._3__Entidades.Fornecedor)">
+            <summary>
+            Endpoint para editar fornecedor
+            </summary>
+            <param name="f"></param>
+            <returns></returns>
+        </member>
+        <member name="M:API.Controllers.Fornecedorcontroller.Deletar(System.Int32)">
+            <summary>
+            Endpoint para deletar fornecedor
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:API.Controllers.Fornecedorcontroller.BuscarPorId(System.Int32)">
+            <summary>
+            Endpoint para buscar fornecedor por id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+            <exception cref="T:System.Exception"></exception>
+        </member>
+        <member name="M:API.Controllers.Funcionariocontroller.Adicionar(Marcenaria._3__Entidades.DTO.CreateFuncionarioDTO)">
+            <summary>
+            Endpoint para adicionar funcionarios
+            </summary>
+            <param name="funcionarioDTO"></param>
+            <returns></returns>
+        </member>
+        <member name="M:API.Controllers.Funcionariocontroller.Listar">
+            <summary>
+            Endpoint para listar funcionarios
+            </summary>
+            <returns></returns>
+            <exception cref="T:System.Exception"></exception>
+        </member>
+        <member name="M:API.Controllers.Funcionariocontroller.Editar(Marcenaria._3__Entidades.Funcionario)">
+            <summary>
+            Endpoint para editar funcionarios
+            </summary>
+            <param name="f"></param>
+            <returns></returns>
+        </member>
+        <member name="M:API.Controllers.Funcionariocontroller.Deletar(System.Int32)">
+            <summary>
+            Endpoint para deletar funcionarios
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:API.Controllers.Funcionariocontroller.BuscarPorId(System.Int32)">
+            <summary>
+            Endpoint para buscar funcionarios por id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+            <exception cref="T:System.Exception"></exception>
+        </member>
+        <member name="M:API.Controllers.Materialcontroller.Adicionar(Marcenaria._3__Entidades.DTO.CreateMaterialDTO)">
+            <summary>
+            Endpoint para adicionar materiais
+            </summary>
+            <param name="materialDTO"></param>
+            <returns></returns>
+        </member>
+        <member name="M:API.Controllers.Materialcontroller.Listar">
+            <summary>
+            Endpoint para listar materiais
+            </summary>
+            <returns></returns>
+            <exception cref="T:System.Exception"></exception>
+        </member>
+        <member name="M:API.Controllers.Materialcontroller.Editar(Marcenaria._3__Entidades.Material)">
+            <summary>
+            Endpoint para editar materiais
+            </summary>
+            <param name="m"></param>
+            <returns></returns>
+        </member>
+        <member name="M:API.Controllers.Materialcontroller.Deletar(System.Int32)">
+            <summary>
+            Endpoint para deletar materiais
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:API.Controllers.Materialcontroller.BuscarPorId(System.Int32)">
+            <summary>
+            Endpoint para buscar materiais por id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+            <exception cref="T:System.Exception"></exception>
+        </member>
+        <member name="M:API.Controllers.Produtocontroller.Adicionar(Marcenaria._3__Entidades.DTO.CreateProdutosDTO)">
+            <summary>
+            Endpoint para adicionar produtos
+            </summary>
+            <param name="produtoDTO"></param>
+            <returns></returns>
+        </member>
+        <member name="M:API.Controllers.Produtocontroller.Listar">
+            <summary>
+            Endpoint para listar produtos
+            </summary>
+            <returns></returns>
+            <exception cref="T:System.Exception"></exception>
+        </member>
+        <member name="M:API.Controllers.Produtocontroller.Editar(Marcenaria._3__Entidades.Produtos)">
+            <summary>
+            Endpoint para editar produtos
+            </summary>
+            <param name="p"></param>
+            <returns></returns>
+        </member>
+        <member name="M:API.Controllers.Produtocontroller.Deletar(System.Int32)">
+            <summary>
+            Endpoint para deletar produtos
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:API.Controllers.Produtocontroller.BuscarPorId(System.Int32)">
+            <summary>
+            Endpoint para buscar produtos por id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+            <exception cref="T:System.Exception"></exception>
+        </member>
+        <member name="M:API.Controllers.Vendacontroller.Adicionar(Marcenaria._3__Entidades.DTO.CreateVendaDTO)">
+            <summary>
+            Endpoint para adicionar vendas
+            </summary>
+            <param name="VendaDTO"></param>
+            <returns></returns>
+        </member>
+        <member name="M:API.Controllers.Vendacontroller.Listar">
+            <summary>
+            Endpoint para listar vendas
+            </summary>
+            <returns></returns>
+            <exception cref="T:System.Exception"></exception>
+        </member>
+        <member name="M:API.Controllers.Vendacontroller.Editar(Marcenaria._3__Entidades.Venda)">
+            <summary>
+            Endpoint para editar vendas
+            </summary>
+            <param name="v"></param>
+            <returns></returns>
+            
+        </member>
+        <member name="M:API.Controllers.Vendacontroller.Deletar(System.Int32)">
+            <summary>
+            Endpoint para deletar vendas
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:API.Controllers.Vendacontroller.BuscarPorId(System.Int32)">
+            <summary>
+            Endpoint para buscar vendas por id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+            <exception cref="T:System.Exception"></exception>
         </member>
     </members>
 </doc>
