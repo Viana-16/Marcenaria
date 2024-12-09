@@ -17,7 +17,7 @@ namespace API.Controllers
         {
             string _config = config.GetConnectionString("DefaultConnection");
             _service = service;
-            _mapper = mapper;
+            _mapper = mapper; 
         }
 
         /// <summary>
