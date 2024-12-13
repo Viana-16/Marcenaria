@@ -40,6 +40,19 @@ namespace Marcenaria._1__Service
         {
             _repository.Editar(editClientes);
         }
-       
+        public Cliente Fazerlogin(CreateClienteDTO usuarioLogin)
+        {
+            List<Cliente> listUsuario = Listar();
+            foreach (Cliente usuario in listUsuario)
+            {
+                if (usuario.Nome == usuarioLogin.Nome
+                    && usuario.Senha == usuarioLogin.Senha)
+                {
+                    return usuario;
+                }
+            }
+            return null;
+        }
+
     }
 }

@@ -144,6 +144,12 @@ namespace API.Controllers
             }
             
         }
+        [HttpPost("Fazer-Login")]
+        public Cliente FazerLogin(CreateClienteDTO usuarioLogin)
+        {
+            Cliente usuario = _service.Fazerlogin(usuarioLogin);
+            return usuario;
+        }
     }
 }
 

@@ -25,6 +25,7 @@ namespace Marcenaria._1__Service.interfaces
 
 
          void Editar(Cliente editClientes);
+        Cliente Fazerlogin(CreateClienteDTO createClienteDTO);
         
     }
 }
