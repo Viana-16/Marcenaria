@@ -29,7 +29,7 @@ namespace API.Controllers
 
 
         [HttpPost("adicionar-Clientes")]
-        public IActionResult Adicionar(CreateClienteDTO clienteDTO)
+        public IActionResult Adicionar(Cliente clienteDTO)
         {
             try
             {

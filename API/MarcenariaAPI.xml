@@ -35,7 +35,7 @@
             </summary>
             <param name="id"></param>
         </member>
-        <member name="M:API.Controllers.Clientecontroller.Adicionar(Marcenaria._3__Entidades.DTO.CreateClienteDTO)">
+        <member name="M:API.Controllers.Clientecontroller.Adicionar(Marcenaria._3__Entidades.Cliente)">
             <summary>
             Endpoint para adicionar clientes
             </summary>
