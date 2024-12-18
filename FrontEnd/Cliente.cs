@@ -17,5 +17,6 @@ namespace Marcenaria._3__Entidades
         public string Usuario { get; set; }
         public int Senha { get; set; }
 
+
     }
 }

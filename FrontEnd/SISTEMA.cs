@@ -13,9 +13,11 @@ namespace FrontEnd
     {
         public  static Cliente usuariologado { get; set; }
       private readonly  ClientUC clientUC;
+        private readonly ProdutoUC produtoUC;
         public SISTEMA(HttpClient cliente)
         {
            clientUC = new ClientUC(cliente);
+            produtoUC= new ProdutoUC(cliente);
         }
         public void IniciarSistema()
         {
@@ -45,9 +47,15 @@ namespace FrontEnd
                         }
                     }
                 }
-                else
+                Console.WriteLine("Você é cliente?\n1 - Sim  2 - Não ");
+                int res = int.Parse(Console.ReadLine());
+                if(res == 1)
                 {
                     ExibirMenuPrincipal();
+                }
+                else if(res == 2)
+                {
+                    ExibirMenuFuncionario();
                 }
             }
         }
@@ -74,15 +82,25 @@ namespace FrontEnd
             usuario.Senha =int.Parse( Console.ReadLine());
             return usuario;
         }
-        //public Produto CriarProduto()
-        //{
-        //    Produto usuario = new Produto();
-        //    Console.WriteLine("Digite seu nome: ");
-        //    usuario.Nome = Console.ReadLine();
-        //    Console.WriteLine("Digite seu preco: ");
-        //    usuario.Preco = double.Parse(Console.ReadLine());
-        //    return usuario;
-        //}
+        public Produtos CriarProduto()
+        {
+            Produtos usuario = new Produtos();
+            Console.WriteLine("Digite o nome do produto: ");
+            usuario.Nome = Console.ReadLine();
+            Console.WriteLine("Digite a validade do produto: ");
+            usuario.Validade = Console.ReadLine();
+            Console.WriteLine("Digite a descrição do produto: ");
+            usuario.Descricao = Console.ReadLine();
+            Console.WriteLine("Digite a categoria do produto: ");
+            usuario.Categoria = Console.ReadLine();
+            Console.WriteLine("Digite a quantidade no estoque: ");
+            usuario.QuantidadeEstoque = int.Parse(Console.ReadLine());
+            Console.WriteLine("Digite o preco: ");
+            usuario.Preco = double.Parse(Console.ReadLine());
+            Console.WriteLine("Digite o id do fornecedor: ");
+            usuario.FornecedorId = int.Parse(Console.ReadLine());
+            return usuario;
+        }
         public void FazerLogin()
         {
             Console.WriteLine("Digite seu username: ");
@@ -100,28 +118,60 @@ namespace FrontEnd
                 Console.WriteLine("Usuário ou senha inválidos!!!");
             }
             usuariologado = usuario;
+            Console.WriteLine($"Bem Vindo {usuariologado.Nome}\n");
+        }
+        public void listar()
+        {
+            List<Produtos> usuarios = produtoUC.ListarProdutos();
+            foreach (Produtos u in usuarios)
+            {
+                Console.WriteLine(u.ToString());
+            }
         }
         public void ExibirMenuPrincipal()
         {
-            Console.WriteLine($" {usuariologado.Nome}");
+            
             Console.WriteLine("1 - Listar Produtos");
-            Console.WriteLine("2 - Cadastrar Produto");
-            Console.WriteLine("3 - Realizar uma compra");
-            Console.WriteLine("4 - Visualizar carrinho");
+            Console.WriteLine("2 - Realizar uma compra");
+            Console.WriteLine("3 - Visualizar carrinho");
             Console.WriteLine("Qual operação deseja realizar?");
             int resposta = int.Parse(Console.ReadLine());
             if (resposta == 1)
             {
-              
+                listar();
+                ExibirMenuPrincipal();
             }
             else if (resposta == 2)
             {
-
+                ExibirMenuPrincipal();
             }
-            if (resposta == 3)
+            else if(resposta == 3)
             {
-
+                ExibirMenuPrincipal();
             }
         }
+
+        public void ExibirMenuFuncionario()
+        {
+
+            Console.WriteLine("1 - Listar Produtos");
+            Console.WriteLine("2 - Cadastrar Produto");
+            Console.WriteLine("Qual operação deseja realizar?");
+            int resposta = int.Parse(Console.ReadLine());
+            if (resposta == 1)
+            {
+                listar();
+                ExibirMenuFuncionario();
+            }
+            else if (resposta == 2)
+            {
+                Produtos produto = CriarProduto();
+                produtoUC.CiarPorduto(produto);
+                Console.WriteLine("Produto cadastrado com sucesso");
+                ExibirMenuFuncionario();
+            }
+        }
+
+
     }
 }
